@@ -5,6 +5,7 @@ import PlantEncyclopedia from "@/components/PlantEncyclopedia";
 import BenefitsSection from "@/components/BenefitsSection";
 import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
+import PlantScanner from "@/components/PlantScanner";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -28,6 +29,7 @@ const Index = () => {
         <AboutSection />
       </main>
       <Footer />
+      <PlantScanner />
     </div>
   );
 };

@@ -120,7 +120,7 @@ export const plants: Plant[] = [
       watering: "Requires constant moisture, can grow in water"
     },
     regions: ["Throughout India", "Kerala", "West Bengal", "Tamil Nadu"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=800"
   },
   {
     id: "aloe-vera",
@@ -215,7 +215,7 @@ export const plants: Plant[] = [
       watering: "Moderate, drought tolerant once established"
     },
     regions: ["Uttar Pradesh", "Madhya Pradesh", "Tamil Nadu", "Rajasthan", "Gujarat"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1580281656488-22c6da0a4e9b?w=800"
   },
   {
     id: "shatavari",
@@ -234,7 +234,7 @@ export const plants: Plant[] = [
       watering: "Regular during growth, reduce when mature"
     },
     regions: ["Himalayas", "Karnataka", "Kerala", "Maharashtra", "Rajasthan"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800"
   },
   {
     id: "giloy",
@@ -253,7 +253,7 @@ export const plants: Plant[] = [
       watering: "Moderate, tolerates some drought"
     },
     regions: ["Throughout India", "Bihar", "Uttar Pradesh", "Karnataka", "Maharashtra"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?w=800"
   },
   {
     id: "curry-leaf",
@@ -272,7 +272,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil moist"
     },
     regions: ["Throughout India", "Tamil Nadu", "Karnataka", "Kerala", "Andhra Pradesh"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800"
   },
   {
     id: "coriander",
@@ -291,7 +291,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil consistently moist"
     },
     regions: ["Rajasthan", "Gujarat", "Madhya Pradesh", "Uttar Pradesh", "Tamil Nadu"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1596097635121-14b63a7b0f9b?w=800"
   },
   {
     id: "fenugreek",
@@ -310,7 +310,7 @@ export const plants: Plant[] = [
       watering: "Moderate, avoid overwatering"
     },
     regions: ["Rajasthan", "Gujarat", "Madhya Pradesh", "Uttar Pradesh", "Maharashtra"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1599021456807-25db0f974333?w=800"
   },
   {
     id: "fennel",
@@ -329,7 +329,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil moist but not waterlogged"
     },
     regions: ["Gujarat", "Rajasthan", "Uttar Pradesh", "Karnataka", "Punjab"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1528750717929-32abb73d3bd9?w=800"
   },
   {
     id: "cumin",
@@ -348,7 +348,7 @@ export const plants: Plant[] = [
       watering: "Low, drought tolerant"
     },
     regions: ["Gujarat", "Rajasthan", "Uttar Pradesh", "Punjab", "Madhya Pradesh"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1591203635628-78dabb9aae27?w=800"
   },
   {
     id: "cardamom",
@@ -367,7 +367,7 @@ export const plants: Plant[] = [
       watering: "Consistent moisture required"
     },
     regions: ["Kerala", "Karnataka", "Tamil Nadu", "Sikkim"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=800"
   },
   {
     id: "black-pepper",
@@ -386,7 +386,7 @@ export const plants: Plant[] = [
       watering: "Regular, requires high humidity"
     },
     regions: ["Kerala", "Karnataka", "Tamil Nadu", "Andaman & Nicobar"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800"
   },
   {
     id: "clove",
@@ -405,7 +405,7 @@ export const plants: Plant[] = [
       watering: "Regular, requires consistent moisture"
     },
     regions: ["Kerala", "Tamil Nadu", "Karnataka"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=800"
   },
   {
     id: "cinnamon",
@@ -424,7 +424,7 @@ export const plants: Plant[] = [
       watering: "Regular, requires humid conditions"
     },
     regions: ["Kerala", "Tamil Nadu", "Karnataka"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=800"
   },
   {
     id: "moringa",
@@ -443,7 +443,7 @@ export const plants: Plant[] = [
       watering: "Low, very drought tolerant"
     },
     regions: ["Throughout India", "Tamil Nadu", "Karnataka", "Andhra Pradesh", "Odisha"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=800"
   },
   {
     id: "hibiscus",
@@ -462,7 +462,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil moist"
     },
     regions: ["Throughout India", "West Bengal", "Kerala", "Tamil Nadu", "Maharashtra"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=800"
   },
   {
     id: "jasmine",
@@ -481,7 +481,7 @@ export const plants: Plant[] = [
       watering: "Regular, avoid waterlogging"
     },
     regions: ["Throughout India", "Tamil Nadu", "Karnataka", "Andhra Pradesh", "West Bengal"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1568696342600-e9e949f3e8a2?w=800"
   },
   {
     id: "rose",
@@ -500,7 +500,7 @@ export const plants: Plant[] = [
       watering: "Regular, avoid wetting leaves"
     },
     regions: ["Rajasthan", "Uttar Pradesh", "Himachal Pradesh", "Karnataka"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1518882605630-8b00322a39e8?w=800"
   },
   {
     id: "lavender",
@@ -519,7 +519,7 @@ export const plants: Plant[] = [
       watering: "Low, drought tolerant"
     },
     regions: ["Kashmir", "Himachal Pradesh", "Uttarakhand"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=800"
   },
   {
     id: "vetiver",
@@ -538,7 +538,7 @@ export const plants: Plant[] = [
       watering: "Moderate, tolerates wet conditions"
     },
     regions: ["Uttar Pradesh", "Rajasthan", "Kerala", "Tamil Nadu", "Bihar"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"
   },
   {
     id: "sandalwood",
@@ -557,7 +557,7 @@ export const plants: Plant[] = [
       watering: "Moderate, semi-parasitic plant"
     },
     regions: ["Karnataka", "Tamil Nadu", "Kerala", "Andhra Pradesh"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800"
   },
   {
     id: "henna",
@@ -576,7 +576,7 @@ export const plants: Plant[] = [
       watering: "Low, very drought tolerant"
     },
     regions: ["Rajasthan", "Gujarat", "Madhya Pradesh", "Punjab"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1571689936114-b16146c9570a?w=800"
   },
   {
     id: "saffron",
@@ -595,7 +595,7 @@ export const plants: Plant[] = [
       watering: "Low, requires dry periods"
     },
     regions: ["Kashmir"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1624797432677-6f803a98acb3?w=800"
   },
   {
     id: "bhringraj",
@@ -614,7 +614,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil moist"
     },
     regions: ["Throughout India", "Kerala", "Tamil Nadu", "West Bengal", "Assam"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800"
   },
   {
     id: "triphala",
@@ -633,7 +633,7 @@ export const plants: Plant[] = [
       watering: "Moderate, established trees are drought tolerant"
     },
     regions: ["Throughout India", "Himalayas", "Madhya Pradesh", "West Bengal"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800"
   },
   {
     id: "guggul",
@@ -652,7 +652,7 @@ export const plants: Plant[] = [
       watering: "Minimal, extremely drought tolerant"
     },
     regions: ["Rajasthan", "Gujarat", "Karnataka", "Madhya Pradesh"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=800"
   },
   {
     id: "arjuna",
@@ -671,7 +671,7 @@ export const plants: Plant[] = [
       watering: "Prefers moist conditions, grows near rivers"
     },
     regions: ["Throughout India", "Uttar Pradesh", "Madhya Pradesh", "West Bengal", "Karnataka"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800"
   },
   {
     id: "manjistha",
@@ -690,7 +690,7 @@ export const plants: Plant[] = [
       watering: "Moderate, avoid waterlogging"
     },
     regions: ["Himalayas", "Kashmir", "Nilgiris", "Western Ghats"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800"
   },
   {
     id: "licorice",
@@ -709,7 +709,7 @@ export const plants: Plant[] = [
       watering: "Regular during growth, reduce in winter"
     },
     regions: ["Jammu & Kashmir", "Punjab", "Himachal Pradesh"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=800"
   },
   {
     id: "vacha",
@@ -728,7 +728,7 @@ export const plants: Plant[] = [
       watering: "Requires constantly wet conditions"
     },
     regions: ["Himalayas", "Kashmir", "Manipur", "Naga Hills"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800"
   },
   {
     id: "kutki",
@@ -747,7 +747,7 @@ export const plants: Plant[] = [
       watering: "Moderate, good drainage essential"
     },
     regions: ["Himalayas", "Kashmir", "Himachal Pradesh", "Uttarakhand"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800"
   },
   {
     id: "punarnava",
@@ -766,7 +766,7 @@ export const plants: Plant[] = [
       watering: "Low, drought tolerant"
     },
     regions: ["Throughout India", "Uttar Pradesh", "Maharashtra", "Karnataka"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800"
   },
   {
     id: "trikatu",
@@ -785,7 +785,7 @@ export const plants: Plant[] = [
       watering: "Varies by component"
     },
     regions: ["Throughout India (components grown in different regions)"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800"
   },
   {
     id: "ajwain",
@@ -804,7 +804,7 @@ export const plants: Plant[] = [
       watering: "Moderate, avoid overwatering"
     },
     regions: ["Rajasthan", "Gujarat", "Madhya Pradesh", "Uttar Pradesh", "Bihar"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1517483000871-1dbf64a6e1c6?w=800"
   },
   {
     id: "bael",
@@ -823,7 +823,7 @@ export const plants: Plant[] = [
       watering: "Low once established"
     },
     regions: ["Throughout India", "Uttar Pradesh", "Bihar", "West Bengal", "Madhya Pradesh"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=800"
   },
   {
     id: "kokum",
@@ -842,7 +842,7 @@ export const plants: Plant[] = [
       watering: "Regular in dry season"
     },
     regions: ["Western Ghats", "Konkan", "Goa", "Maharashtra", "Karnataka"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1546548970-71785318a17b?w=800"
   },
   {
     id: "tamarind",
@@ -861,7 +861,7 @@ export const plants: Plant[] = [
       watering: "Low once established"
     },
     regions: ["Throughout India", "Tamil Nadu", "Karnataka", "Andhra Pradesh", "Maharashtra"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1588421357574-87938a86fa28?w=800"
   },
   {
     id: "mango-leaf",
@@ -880,7 +880,7 @@ export const plants: Plant[] = [
       watering: "Regular when young, less when mature"
     },
     regions: ["Throughout India", "Maharashtra", "Uttar Pradesh", "Andhra Pradesh", "Karnataka", "Bihar"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1553279768-865429fa0078?w=800"
   },
   {
     id: "papaya",
@@ -899,7 +899,7 @@ export const plants: Plant[] = [
       watering: "Regular, avoid waterlogging"
     },
     regions: ["Throughout India", "Andhra Pradesh", "Karnataka", "Gujarat", "West Bengal"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1517282009859-f000ec3b26fe?w=800"
   },
   {
     id: "stevia",
@@ -918,7 +918,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil moist"
     },
     regions: ["Madhya Pradesh", "Maharashtra", "Gujarat", "Karnataka", "Rajasthan"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=800"
   },
   {
     id: "oregano",
@@ -937,7 +937,7 @@ export const plants: Plant[] = [
       watering: "Low, drought tolerant"
     },
     regions: ["Himachal Pradesh", "Uttarakhand", "Kashmir"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1515586000433-45406d8e6662?w=800"
   },
   {
     id: "bay-leaf",
@@ -956,7 +956,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil moist"
     },
     regions: ["Himalayas", "Uttarakhand", "Sikkim", "Arunachal Pradesh", "Meghalaya"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1486328228599-85db4443971f?w=800"
   },
   {
     id: "asafoetida",
@@ -975,6 +975,6 @@ export const plants: Plant[] = [
       watering: "Low, drought conditions preferred"
     },
     regions: ["Kashmir", "Punjab (cultivated)", "Originally from Afghanistan/Iran"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=800"
   }
 ];

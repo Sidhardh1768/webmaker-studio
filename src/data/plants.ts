@@ -44,7 +44,7 @@ export const plants: Plant[] = [
       watering: "Regular watering, keep soil moist but not waterlogged"
     },
     regions: ["Throughout India", "Uttar Pradesh", "Madhya Pradesh", "Karnataka"],
-    image: "https://images.unsplash.com/photo-1629157606597-24acc4fb1261?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Ocimum_tenuiflorum_2.jpg/800px-Ocimum_tenuiflorum_2.jpg"
   },
   {
     id: "ashwagandha",
@@ -63,7 +63,7 @@ export const plants: Plant[] = [
       watering: "Low water requirement, drought tolerant"
     },
     regions: ["Rajasthan", "Gujarat", "Madhya Pradesh", "Maharashtra", "Punjab"],
-    image: "https://images.unsplash.com/photo-1611241893603-3c228ee0ae6f?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Withania_somnifera_-_Ashwagandha.jpg/800px-Withania_somnifera_-_Ashwagandha.jpg"
   },
   {
     id: "neem",
@@ -82,7 +82,7 @@ export const plants: Plant[] = [
       watering: "Minimal once established, drought resistant"
     },
     regions: ["Throughout India", "Tamil Nadu", "Karnataka", "Andhra Pradesh", "Uttar Pradesh"],
-    image: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Neem_%28Azadirachta_indica%29_leaves_%26_flowers_W_IMG_6899.jpg/800px-Neem_%28Azadirachta_indica%29_leaves_%26_flowers_W_IMG_6899.jpg"
   },
   {
     id: "turmeric",
@@ -101,7 +101,7 @@ export const plants: Plant[] = [
       watering: "Regular watering, requires consistent moisture"
     },
     regions: ["Andhra Pradesh", "Tamil Nadu", "Odisha", "Karnataka", "West Bengal"],
-    image: "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Curcuma_longa_-_Ko%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-199.jpg/800px-Curcuma_longa_-_Ko%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-199.jpg"
   },
   {
     id: "brahmi",
@@ -120,7 +120,7 @@ export const plants: Plant[] = [
       watering: "Requires constant moisture, can grow in water"
     },
     regions: ["Throughout India", "Kerala", "West Bengal", "Tamil Nadu"],
-    image: "https://images.unsplash.com/photo-1530968464165-7a1861cbaf9f?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Bacopa_monnieri_001.jpg/800px-Bacopa_monnieri_001.jpg"
   },
   {
     id: "aloe-vera",
@@ -139,7 +139,7 @@ export const plants: Plant[] = [
       watering: "Infrequent, allow soil to dry between watering"
     },
     regions: ["Rajasthan", "Gujarat", "Andhra Pradesh", "Tamil Nadu", "Maharashtra"],
-    image: "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Aloe_vera_flower_inridge.jpg/800px-Aloe_vera_flower_inridge.jpg"
   },
   {
     id: "mint",
@@ -158,7 +158,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil consistently moist"
     },
     regions: ["Throughout India", "Himachal Pradesh", "Uttarakhand", "Punjab"],
-    image: "https://images.unsplash.com/photo-1628556270448-4d4e4148e1b1?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Minze.jpg/800px-Minze.jpg"
   },
   {
     id: "lemongrass",
@@ -177,7 +177,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil moist"
     },
     regions: ["Kerala", "Karnataka", "Tamil Nadu", "Maharashtra", "Assam"],
-    image: "https://images.unsplash.com/photo-1595231712325-9fedecef7575?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cymbopogon_citratus_-_Lemon_Grass.jpg/800px-Cymbopogon_citratus_-_Lemon_Grass.jpg"
   },
   {
     id: "ginger",
@@ -196,7 +196,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil consistently moist"
     },
     regions: ["Kerala", "Karnataka", "Assam", "West Bengal", "Meghalaya"],
-    image: "https://images.unsplash.com/photo-1573511860302-28c524319d2a?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Ginger_in_China_01.jpg/800px-Ginger_in_China_01.jpg"
   },
   {
     id: "amla",
@@ -215,7 +215,7 @@ export const plants: Plant[] = [
       watering: "Moderate, drought tolerant once established"
     },
     regions: ["Uttar Pradesh", "Madhya Pradesh", "Tamil Nadu", "Rajasthan", "Gujarat"],
-    image: "https://images.unsplash.com/photo-1597714026720-8f74c62310ba?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Indian_Gooseberry_%28Amla%29.jpg/800px-Indian_Gooseberry_%28Amla%29.jpg"
   },
   {
     id: "shatavari",
@@ -234,7 +234,7 @@ export const plants: Plant[] = [
       watering: "Regular during growth, reduce when mature"
     },
     regions: ["Himalayas", "Karnataka", "Kerala", "Maharashtra", "Rajasthan"],
-    image: "https://images.unsplash.com/photo-1457530378978-8bac673b8062?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Asparagus_racemosus_-_wild_asparagus_-_at_Peravoor_2018_%282%29.jpg/800px-Asparagus_racemosus_-_wild_asparagus_-_at_Peravoor_2018_%282%29.jpg"
   },
   {
     id: "giloy",
@@ -253,7 +253,7 @@ export const plants: Plant[] = [
       watering: "Moderate, tolerates some drought"
     },
     regions: ["Throughout India", "Bihar", "Uttar Pradesh", "Karnataka", "Maharashtra"],
-    image: "https://images.unsplash.com/photo-1470058869958-2a77ade41c02?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Tinospora_cordifolia.jpg/800px-Tinospora_cordifolia.jpg"
   },
   {
     id: "curry-leaf",
@@ -272,7 +272,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil moist"
     },
     regions: ["Throughout India", "Tamil Nadu", "Karnataka", "Kerala", "Andhra Pradesh"],
-    image: "https://images.unsplash.com/photo-1536882240095-0379873feb4e?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Murraya_koenigii_leaves.jpg/800px-Murraya_koenigii_leaves.jpg"
   },
   {
     id: "coriander",
@@ -291,7 +291,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil consistently moist"
     },
     regions: ["Rajasthan", "Gujarat", "Madhya Pradesh", "Uttar Pradesh", "Tamil Nadu"],
-    image: "https://images.unsplash.com/photo-1466027449855-0b15733c5127?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/A_scene_of_Coriander_leaves.JPG/800px-A_scene_of_Coriander_leaves.JPG"
   },
   {
     id: "fenugreek",
@@ -310,7 +310,7 @@ export const plants: Plant[] = [
       watering: "Moderate, avoid overwatering"
     },
     regions: ["Rajasthan", "Gujarat", "Madhya Pradesh", "Uttar Pradesh", "Maharashtra"],
-    image: "https://images.unsplash.com/photo-1515023115689-589c33041d3c?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Fenugreek.jpg/800px-Fenugreek.jpg"
   },
   {
     id: "fennel",
@@ -329,7 +329,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil moist but not waterlogged"
     },
     regions: ["Gujarat", "Rajasthan", "Uttar Pradesh", "Karnataka", "Punjab"],
-    image: "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Fennel_flower.jpg/800px-Fennel_flower.jpg"
   },
   {
     id: "cumin",
@@ -348,7 +348,7 @@ export const plants: Plant[] = [
       watering: "Low, drought tolerant"
     },
     regions: ["Gujarat", "Rajasthan", "Uttar Pradesh", "Punjab", "Madhya Pradesh"],
-    image: "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Cumin_plant_Cuminum_cyminum_in_Punjab%2C_Pakistan_-_March_2011.jpg/800px-Cumin_plant_Cuminum_cyminum_in_Punjab%2C_Pakistan_-_March_2011.jpg"
   },
   {
     id: "cardamom",
@@ -367,7 +367,7 @@ export const plants: Plant[] = [
       watering: "Consistent moisture required"
     },
     regions: ["Kerala", "Karnataka", "Tamil Nadu", "Sikkim"],
-    image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Elettaria_cardamomum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-057.jpg/800px-Elettaria_cardamomum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-057.jpg"
   },
   {
     id: "black-pepper",
@@ -386,7 +386,7 @@ export const plants: Plant[] = [
       watering: "Regular, requires high humidity"
     },
     regions: ["Kerala", "Karnataka", "Tamil Nadu", "Andaman & Nicobar"],
-    image: "https://images.unsplash.com/photo-1599909533601-aa1ce53c648e?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Piper_nigrum_Piperaceae.png/800px-Piper_nigrum_Piperaceae.png"
   },
   {
     id: "clove",
@@ -405,7 +405,7 @@ export const plants: Plant[] = [
       watering: "Regular, requires consistent moisture"
     },
     regions: ["Kerala", "Tamil Nadu", "Karnataka"],
-    image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Syzygium_aromaticum_on_tree.jpg/800px-Syzygium_aromaticum_on_tree.jpg"
   },
   {
     id: "cinnamon",
@@ -424,7 +424,7 @@ export const plants: Plant[] = [
       watering: "Regular, requires humid conditions"
     },
     regions: ["Kerala", "Tamil Nadu", "Karnataka"],
-    image: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Cinnamomum_verum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-182.jpg/800px-Cinnamomum_verum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-182.jpg"
   },
   {
     id: "moringa",
@@ -443,7 +443,7 @@ export const plants: Plant[] = [
       watering: "Low, very drought tolerant"
     },
     regions: ["Throughout India", "Tamil Nadu", "Karnataka", "Andhra Pradesh", "Odisha"],
-    image: "https://images.unsplash.com/photo-1567331711402-509c12c41959?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Moringa_oleifera_%28Lam.%29_leaves_%26_flowers.jpg/800px-Moringa_oleifera_%28Lam.%29_leaves_%26_flowers.jpg"
   },
   {
     id: "hibiscus",
@@ -462,7 +462,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil moist"
     },
     regions: ["Throughout India", "West Bengal", "Kerala", "Tamil Nadu", "Maharashtra"],
-    image: "https://images.unsplash.com/photo-1592861956120-e524fc739696?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Hibiscus_rosa-sinensis_flower_2.JPG/800px-Hibiscus_rosa-sinensis_flower_2.JPG"
   },
   {
     id: "jasmine",
@@ -481,7 +481,7 @@ export const plants: Plant[] = [
       watering: "Regular, avoid waterlogging"
     },
     regions: ["Throughout India", "Tamil Nadu", "Karnataka", "Andhra Pradesh", "West Bengal"],
-    image: "https://images.unsplash.com/photo-1606041008023-472dfb5e530f?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Jasminum_sambac.jpg/800px-Jasminum_sambac.jpg"
   },
   {
     id: "rose",
@@ -500,7 +500,7 @@ export const plants: Plant[] = [
       watering: "Regular, avoid wetting leaves"
     },
     regions: ["Rajasthan", "Uttar Pradesh", "Himachal Pradesh", "Karnataka"],
-    image: "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Rosa_damascena_003.JPG/800px-Rosa_damascena_003.JPG"
   },
   {
     id: "lavender",
@@ -519,7 +519,7 @@ export const plants: Plant[] = [
       watering: "Low, drought tolerant"
     },
     regions: ["Kashmir", "Himachal Pradesh", "Uttarakhand"],
-    image: "https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Single_laridge_702702702.jpg/800px-Single_laridge_702702702.jpg"
   },
   {
     id: "vetiver",
@@ -538,7 +538,7 @@ export const plants: Plant[] = [
       watering: "Moderate, tolerates wet conditions"
     },
     regions: ["Uttar Pradesh", "Rajasthan", "Kerala", "Tamil Nadu", "Bihar"],
-    image: "https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Vetiveria_zizanioides_in_Hyderabad%2C_AP_W_IMG_9114.jpg/800px-Vetiveria_zizanioides_in_Hyderabad%2C_AP_W_IMG_9114.jpg"
   },
   {
     id: "sandalwood",
@@ -557,7 +557,7 @@ export const plants: Plant[] = [
       watering: "Moderate, semi-parasitic plant"
     },
     regions: ["Karnataka", "Tamil Nadu", "Kerala", "Andhra Pradesh"],
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Santalum_album_%28Chandan%29_in_Hyderabad_W_IMG_8209.jpg/800px-Santalum_album_%28Chandan%29_in_Hyderabad_W_IMG_8209.jpg"
   },
   {
     id: "henna",
@@ -576,7 +576,7 @@ export const plants: Plant[] = [
       watering: "Low, very drought tolerant"
     },
     regions: ["Rajasthan", "Gujarat", "Madhya Pradesh", "Punjab"],
-    image: "https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Lawsonia_inermis_%28Mehndi%29_in_Hyderabad%2C_AP_W_IMG_0524.jpg/800px-Lawsonia_inermis_%28Mehndi%29_in_Hyderabad%2C_AP_W_IMG_0524.jpg"
   },
   {
     id: "saffron",
@@ -595,7 +595,7 @@ export const plants: Plant[] = [
       watering: "Low, requires dry periods"
     },
     regions: ["Kashmir"],
-    image: "https://images.unsplash.com/photo-1577003811926-53b288a6e5d0?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Crocus_sativus_02.JPG/800px-Crocus_sativus_02.JPG"
   },
   {
     id: "bhringraj",
@@ -614,7 +614,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil moist"
     },
     regions: ["Throughout India", "Kerala", "Tamil Nadu", "West Bengal", "Assam"],
-    image: "https://images.unsplash.com/photo-1444930694458-01babf71870c?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Eclipta_prostrata.jpg/800px-Eclipta_prostrata.jpg"
   },
   {
     id: "triphala",
@@ -633,7 +633,7 @@ export const plants: Plant[] = [
       watering: "Moderate, established trees are drought tolerant"
     },
     regions: ["Throughout India", "Himalayas", "Madhya Pradesh", "West Bengal"],
-    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Terminalia_chebula_-_Myrobalan_%28Haritaki%29.jpg/800px-Terminalia_chebula_-_Myrobalan_%28Haritaki%29.jpg"
   },
   {
     id: "guggul",
@@ -652,7 +652,7 @@ export const plants: Plant[] = [
       watering: "Minimal, extremely drought tolerant"
     },
     regions: ["Rajasthan", "Gujarat", "Karnataka", "Madhya Pradesh"],
-    image: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Commiphora_wightii.jpg/800px-Commiphora_wightii.jpg"
   },
   {
     id: "arjuna",
@@ -671,7 +671,7 @@ export const plants: Plant[] = [
       watering: "Prefers moist conditions, grows near rivers"
     },
     regions: ["Throughout India", "Uttar Pradesh", "Madhya Pradesh", "West Bengal", "Karnataka"],
-    image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Terminalia_arjuna_-_Arjun_Tree.jpg/800px-Terminalia_arjuna_-_Arjun_Tree.jpg"
   },
   {
     id: "manjistha",
@@ -690,7 +690,7 @@ export const plants: Plant[] = [
       watering: "Moderate, avoid waterlogging"
     },
     regions: ["Himalayas", "Kashmir", "Nilgiris", "Western Ghats"],
-    image: "https://images.unsplash.com/photo-1518882605630-8b00322a39e8?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Rubia_cordifolia.jpg/800px-Rubia_cordifolia.jpg"
   },
   {
     id: "licorice",
@@ -709,7 +709,7 @@ export const plants: Plant[] = [
       watering: "Regular during growth, reduce in winter"
     },
     regions: ["Jammu & Kashmir", "Punjab", "Himachal Pradesh"],
-    image: "https://images.unsplash.com/photo-1501004318855-cd2e2b282cee?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Glycyrrhiza_glabra_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-083.jpg/800px-Glycyrrhiza_glabra_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-083.jpg"
   },
   {
     id: "vacha",
@@ -728,7 +728,7 @@ export const plants: Plant[] = [
       watering: "Requires constantly wet conditions"
     },
     regions: ["Himalayas", "Kashmir", "Manipur", "Naga Hills"],
-    image: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Acorus_calamus_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-004.jpg/800px-Acorus_calamus_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-004.jpg"
   },
   {
     id: "kutki",
@@ -747,7 +747,7 @@ export const plants: Plant[] = [
       watering: "Moderate, good drainage essential"
     },
     regions: ["Himalayas", "Kashmir", "Himachal Pradesh", "Uttarakhand"],
-    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Picrorhiza_kurroa.jpg/800px-Picrorhiza_kurroa.jpg"
   },
   {
     id: "punarnava",
@@ -766,7 +766,7 @@ export const plants: Plant[] = [
       watering: "Low, drought tolerant"
     },
     regions: ["Throughout India", "Uttar Pradesh", "Maharashtra", "Karnataka"],
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Boerhavia_diffusa_W_IMG_1682.jpg/800px-Boerhavia_diffusa_W_IMG_1682.jpg"
   },
   {
     id: "trikatu",
@@ -785,7 +785,7 @@ export const plants: Plant[] = [
       watering: "Varies by component"
     },
     regions: ["Throughout India (components grown in different regions)"],
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Piper_longum_plant.jpg/800px-Piper_longum_plant.jpg"
   },
   {
     id: "ajwain",
@@ -804,7 +804,7 @@ export const plants: Plant[] = [
       watering: "Moderate, avoid overwatering"
     },
     regions: ["Rajasthan", "Gujarat", "Madhya Pradesh", "Uttar Pradesh", "Bihar"],
-    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Ajwain.jpg/800px-Ajwain.jpg"
   },
   {
     id: "bael",
@@ -823,7 +823,7 @@ export const plants: Plant[] = [
       watering: "Low once established"
     },
     regions: ["Throughout India", "Uttar Pradesh", "Bihar", "West Bengal", "Madhya Pradesh"],
-    image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Aegle_marmelos_-_Bael_%28fruit%29.jpg/800px-Aegle_marmelos_-_Bael_%28fruit%29.jpg"
   },
   {
     id: "kokum",
@@ -842,7 +842,7 @@ export const plants: Plant[] = [
       watering: "Regular in dry season"
     },
     regions: ["Western Ghats", "Konkan", "Goa", "Maharashtra", "Karnataka"],
-    image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Garcinia_indica_fruit.jpg/800px-Garcinia_indica_fruit.jpg"
   },
   {
     id: "tamarind",
@@ -861,7 +861,7 @@ export const plants: Plant[] = [
       watering: "Low once established"
     },
     regions: ["Throughout India", "Tamil Nadu", "Karnataka", "Andhra Pradesh", "Maharashtra"],
-    image: "https://images.unsplash.com/photo-1580281656488-22c6da0a4e9b?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Tamarind_tree_in_India.jpg/800px-Tamarind_tree_in_India.jpg"
   },
   {
     id: "mango-leaf",
@@ -880,7 +880,7 @@ export const plants: Plant[] = [
       watering: "Regular when young, less when mature"
     },
     regions: ["Throughout India", "Maharashtra", "Uttar Pradesh", "Andhra Pradesh", "Karnataka", "Bihar"],
-    image: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Mangifera_indica_%28Manguier_1%29.jpg/800px-Mangifera_indica_%28Manguier_1%29.jpg"
   },
   {
     id: "papaya",
@@ -899,7 +899,7 @@ export const plants: Plant[] = [
       watering: "Regular, avoid waterlogging"
     },
     regions: ["Throughout India", "Andhra Pradesh", "Karnataka", "Gujarat", "West Bengal"],
-    image: "https://images.unsplash.com/photo-1526318472351-c75fcf070305?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Carica_papaya_-_papaya_-_var-tropical_dwarf_papaya_-_desc-fruit.jpg/800px-Carica_papaya_-_papaya_-_var-tropical_dwarf_papaya_-_desc-fruit.jpg"
   },
   {
     id: "stevia",
@@ -918,7 +918,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil moist"
     },
     regions: ["Madhya Pradesh", "Maharashtra", "Gujarat", "Karnataka", "Rajasthan"],
-    image: "https://images.unsplash.com/photo-1558024920-b41e1887dc32?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Stevia_rebaudiana_flowers.jpg/800px-Stevia_rebaudiana_flowers.jpg"
   },
   {
     id: "oregano",
@@ -937,7 +937,7 @@ export const plants: Plant[] = [
       watering: "Low, drought tolerant"
     },
     regions: ["Himachal Pradesh", "Uttarakhand", "Kashmir"],
-    image: "https://images.unsplash.com/photo-1600231915711-14af33c14fd2?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Origanum_vulgare_-_hass_oregano.jpg/800px-Origanum_vulgare_-_hass_oregano.jpg"
   },
   {
     id: "bay-leaf",
@@ -956,7 +956,7 @@ export const plants: Plant[] = [
       watering: "Regular, keep soil moist"
     },
     regions: ["Himalayas", "Uttarakhand", "Sikkim", "Arunachal Pradesh", "Meghalaya"],
-    image: "https://images.unsplash.com/photo-1515586000433-45406d8e6662?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Bay_leaf_pair443.jpg/800px-Bay_leaf_pair443.jpg"
   },
   {
     id: "asafoetida",
@@ -975,6 +975,6 @@ export const plants: Plant[] = [
       watering: "Low, drought conditions preferred"
     },
     regions: ["Kashmir", "Punjab (cultivated)", "Originally from Afghanistan/Iran"],
-    image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=800"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Ferula_assa-foetida_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-149.jpg/800px-Ferula_assa-foetida_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-149.jpg"
   }
 ];

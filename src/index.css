@@ -211,3 +211,14 @@
 .animation-delay-600 {
   animation-delay: 600ms;
 }
+
+@keyframes scan-line {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(calc(50vh - 4rem)); opacity: 0; }
+}
+
+.animate-scan-line {
+  animation: scan-line 2.5s ease-in-out infinite;
+}

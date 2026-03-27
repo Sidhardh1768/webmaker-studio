@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import { Camera, X, Loader2, Leaf, Sparkles } from "lucide-react";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { Camera, X, Loader2, Leaf, Sparkles, ScanLine } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -9,8 +9,9 @@ import {
 } from "@/components/ui/dialog";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import PlantResult from "@/components/PlantResult";
 
-interface PlantInfo {
+export interface PlantInfo {
   identified: boolean;
   confidence?: string;
   commonName?: string;
@@ -30,262 +31,245 @@ interface PlantInfo {
   message?: string;
 }
 
+const SCAN_INTERVAL_MS = 5000; // scan every 5 seconds
+
 const PlantScanner = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  const [isScanning, setIsScanning] = useState(false);
+  const [isIdentifying, setIsIdentifying] = useState(false);
   const [plantInfo, setPlantInfo] = useState<PlantInfo | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [cameraError, setCameraError] = useState<string | null>(null);
+  
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const streamRef = useRef<MediaStream | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const { toast } = useToast();
 
-  const handleFileSelect = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
+  const stopCamera = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach(track => track.stop());
+      streamRef.current = null;
+    }
+    setIsScanning(false);
+  }, []);
 
-    // Convert file to base64
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-      const base64Image = e.target?.result as string;
-      setCapturedImage(base64Image);
-      await identifyPlant(base64Image);
-    };
-    reader.readAsDataURL(file);
-  };
+  const captureFrame = useCallback((): string | null => {
+    const video = videoRef.current;
+    const canvas = canvasRef.current;
+    if (!video || !canvas || video.readyState < 2) return null;
 
-  const identifyPlant = async (imageData: string) => {
-    setIsLoading(true);
-    setPlantInfo(null);
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return null;
+
+    ctx.drawImage(video, 0, 0);
+    return canvas.toDataURL("image/jpeg", 0.7);
+  }, []);
+
+  const identifyPlant = useCallback(async (imageData: string) => {
+    if (isIdentifying) return; // skip if still processing previous frame
+    setIsIdentifying(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke('identify-plant', {
-        body: { image: imageData }
+      const { data, error } = await supabase.functions.invoke("identify-plant", {
+        body: { image: imageData },
       });
 
-      if (error) {
-        throw error;
-      }
-
-      if (data.error) {
-        throw new Error(data.error);
-      }
-
-      setPlantInfo(data);
+      if (error) throw error;
+      if (data.error) throw new Error(data.error);
 
       if (data.identified) {
+        setPlantInfo(data);
+        // Stop scanning once we get a result
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current);
+          intervalRef.current = null;
+        }
         toast({
           title: "Plant Identified!",
           description: `Found: ${data.commonName}`,
         });
-      } else {
-        toast({
-          variant: "destructive",
-          title: "Could not identify plant",
-          description: data.message || "Try with a clearer image",
-        });
       }
     } catch (error) {
-      console.error('Error identifying plant:', error);
-      toast({
-        variant: "destructive",
-        title: "Identification failed",
-        description: error instanceof Error ? error.message : "Please try again",
-      });
+      console.error("Error identifying plant:", error);
+      // Don't stop scanning on error, just log it
     } finally {
-      setIsLoading(false);
+      setIsIdentifying(false);
     }
-  };
+  }, [isIdentifying, toast]);
 
-  const handleOpenScanner = () => {
+  const startCamera = useCallback(async () => {
+    setCameraError(null);
+    setPlantInfo(null);
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "environment", width: { ideal: 1280 }, height: { ideal: 720 } },
+      });
+      streamRef.current = stream;
+
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+        await videoRef.current.play();
+      }
+
+      setIsScanning(true);
+
+      // Auto-scan every N seconds
+      intervalRef.current = setInterval(() => {
+        const frame = captureFrame();
+        if (frame) identifyPlant(frame);
+      }, SCAN_INTERVAL_MS);
+
+      // Also do an immediate first scan after 1.5s to give camera time to focus
+      setTimeout(() => {
+        const frame = captureFrame();
+        if (frame) identifyPlant(frame);
+      }, 1500);
+    } catch (err) {
+      console.error("Camera error:", err);
+      setCameraError("Could not access camera. Please allow camera permissions.");
+    }
+  }, [captureFrame, identifyPlant]);
+
+  const handleOpen = () => {
     setIsOpen(true);
-    setCapturedImage(null);
     setPlantInfo(null);
+    setCameraError(null);
   };
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
+    stopCamera();
     setIsOpen(false);
-    setCapturedImage(null);
     setPlantInfo(null);
-  };
+    setCameraError(null);
+  }, [stopCamera]);
 
-  const handleRetake = () => {
-    setCapturedImage(null);
+  const handleRescan = useCallback(() => {
     setPlantInfo(null);
-    fileInputRef.current?.click();
-  };
+    // Restart the interval
+    intervalRef.current = setInterval(() => {
+      const frame = captureFrame();
+      if (frame) identifyPlant(frame);
+    }, SCAN_INTERVAL_MS);
+    // Immediate scan
+    const frame = captureFrame();
+    if (frame) identifyPlant(frame);
+  }, [captureFrame, identifyPlant]);
+
+  // Start camera when dialog opens
+  useEffect(() => {
+    if (isOpen) {
+      startCamera();
+    }
+    return () => stopCamera();
+  }, [isOpen]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
       <Button
-        onClick={handleOpenScanner}
+        onClick={handleOpen}
         className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full shadow-lg bg-primary hover:bg-primary/90 p-0"
         size="icon"
       >
         <Camera className="h-6 w-6" />
       </Button>
 
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
+      <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose()}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-0">
+          <DialogHeader className="p-4 pb-0">
             <DialogTitle className="flex items-center gap-2">
               <Leaf className="h-5 w-5 text-primary" />
-              Plant Scanner
+              Live Plant Scanner
             </DialogTitle>
           </DialogHeader>
 
-          <div className="space-y-4">
-            {!capturedImage ? (
-              <div className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-muted-foreground/25 rounded-lg">
-                <Camera className="h-12 w-12 text-muted-foreground mb-4" />
-                <p className="text-muted-foreground mb-4 text-center">
-                  Take a photo or upload an image of a plant to identify it
-                </p>
-                <input
-                  type="file"
-                  accept="image/*"
-                  capture="environment"
-                  onChange={handleFileSelect}
-                  ref={fileInputRef}
-                  className="hidden"
-                />
-                <Button onClick={() => fileInputRef.current?.click()}>
-                  <Camera className="h-4 w-4 mr-2" />
-                  Capture or Upload Photo
-                </Button>
-              </div>
-            ) : (
-              <div className="space-y-4">
-                <div className="relative">
-                  <img
-                    src={capturedImage}
-                    alt="Captured plant"
-                    className="w-full h-64 object-cover rounded-lg"
-                  />
-                  {isLoading && (
-                    <div className="absolute inset-0 bg-background/80 flex items-center justify-center rounded-lg">
-                      <div className="flex flex-col items-center gap-2">
-                        <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                        <p className="text-sm text-muted-foreground">Identifying plant...</p>
-                      </div>
+          <div className="space-y-0">
+            {/* Live camera feed */}
+            <div className="relative bg-black">
+              <video
+                ref={videoRef}
+                autoPlay
+                playsInline
+                muted
+                className="w-full h-[50vh] object-cover"
+              />
+              <canvas ref={canvasRef} className="hidden" />
+
+              {/* Scanning overlay */}
+              {isScanning && !plantInfo && (
+                <div className="absolute inset-0 pointer-events-none">
+                  {/* Corner brackets */}
+                  <div className="absolute inset-8 border-2 border-primary/50 rounded-xl" />
+                  
+                  {/* Scanning line animation */}
+                  <div className="absolute inset-8 overflow-hidden rounded-xl">
+                    <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent animate-scan-line" />
+                  </div>
+
+                  {/* Status indicator */}
+                  <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+                    <div className="bg-background/80 backdrop-blur-sm rounded-full px-4 py-2 flex items-center gap-2">
+                      {isIdentifying ? (
+                        <>
+                          <Loader2 className="h-4 w-4 animate-spin text-primary" />
+                          <span className="text-sm font-medium">Analyzing...</span>
+                        </>
+                      ) : (
+                        <>
+                          <ScanLine className="h-4 w-4 text-primary" />
+                          <span className="text-sm font-medium">Point at a plant</span>
+                        </>
+                      )}
                     </div>
-                  )}
+                  </div>
                 </div>
+              )}
 
-                {plantInfo && plantInfo.identified && (
-                  <div className="bg-muted/50 rounded-lg p-4 space-y-4">
-                    <div className="flex items-start gap-3">
-                      <Sparkles className="h-5 w-5 text-primary mt-1" />
-                      <div>
-                        <h3 className="font-semibold text-lg">{plantInfo.commonName}</h3>
-                        <p className="text-sm text-muted-foreground italic">
-                          {plantInfo.scientificName}
-                        </p>
-                        {plantInfo.family && (
-                          <p className="text-xs text-muted-foreground">
-                            Family: {plantInfo.family}
-                          </p>
-                        )}
-                        {plantInfo.confidence && (
-                          <span className={`inline-block mt-1 text-xs px-2 py-0.5 rounded-full ${
-                            plantInfo.confidence === 'high' 
-                              ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
-                              : plantInfo.confidence === 'medium'
-                              ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
-                              : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
-                          }`}>
-                            {plantInfo.confidence} confidence
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    {plantInfo.description && (
-                      <p className="text-sm">{plantInfo.description}</p>
-                    )}
-
-                    {plantInfo.medicinalProperties && plantInfo.medicinalProperties.length > 0 && (
-                      <div>
-                        <h4 className="font-medium text-sm mb-2">Medicinal Properties</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {plantInfo.medicinalProperties.map((prop, idx) => (
-                            <span key={idx} className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
-                              {prop}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {plantInfo.ayurvedicBenefits && plantInfo.ayurvedicBenefits.length > 0 && (
-                      <div>
-                        <h4 className="font-medium text-sm mb-2">Ayurvedic Benefits</h4>
-                        <ul className="text-sm list-disc list-inside space-y-1">
-                          {plantInfo.ayurvedicBenefits.map((benefit, idx) => (
-                            <li key={idx} className="text-muted-foreground">{benefit}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-
-                    {plantInfo.growingConditions && (
-                      <div>
-                        <h4 className="font-medium text-sm mb-2">Growing Conditions</h4>
-                        <div className="grid grid-cols-2 gap-2 text-sm">
-                          {plantInfo.growingConditions.soil && (
-                            <div>
-                              <span className="text-muted-foreground">Soil:</span>{" "}
-                              {plantInfo.growingConditions.soil}
-                            </div>
-                          )}
-                          {plantInfo.growingConditions.temperature && (
-                            <div>
-                              <span className="text-muted-foreground">Temp:</span>{" "}
-                              {plantInfo.growingConditions.temperature}
-                            </div>
-                          )}
-                          {plantInfo.growingConditions.sunlight && (
-                            <div>
-                              <span className="text-muted-foreground">Sunlight:</span>{" "}
-                              {plantInfo.growingConditions.sunlight}
-                            </div>
-                          )}
-                          {plantInfo.growingConditions.watering && (
-                            <div>
-                              <span className="text-muted-foreground">Water:</span>{" "}
-                              {plantInfo.growingConditions.watering}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    )}
-
-                    {plantInfo.usageTips && (
-                      <div>
-                        <h4 className="font-medium text-sm mb-1">Usage Tips</h4>
-                        <p className="text-sm text-muted-foreground">{plantInfo.usageTips}</p>
-                      </div>
-                    )}
+              {/* Camera error */}
+              {cameraError && (
+                <div className="absolute inset-0 flex items-center justify-center bg-background">
+                  <div className="text-center p-6">
+                    <Camera className="h-12 w-12 text-muted-foreground mx-auto mb-3" />
+                    <p className="text-muted-foreground">{cameraError}</p>
+                    <Button onClick={startCamera} className="mt-4">
+                      Try Again
+                    </Button>
                   </div>
-                )}
+                </div>
+              )}
+            </div>
 
-                {plantInfo && !plantInfo.identified && (
-                  <div className="bg-destructive/10 rounded-lg p-4 text-center">
-                    <p className="text-destructive font-medium">Could not identify plant</p>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      {plantInfo.message || "Try with a clearer image of the plant"}
-                    </p>
-                  </div>
-                )}
-
-                <div className="flex gap-2">
-                  <Button variant="outline" onClick={handleRetake} className="flex-1">
-                    <Camera className="h-4 w-4 mr-2" />
-                    Try Another
+            {/* Result panel */}
+            {plantInfo && plantInfo.identified && (
+              <div className="p-4">
+                <PlantResult plantInfo={plantInfo} />
+                <div className="flex gap-2 mt-4">
+                  <Button onClick={handleRescan} className="flex-1">
+                    <ScanLine className="h-4 w-4 mr-2" />
+                    Scan Another
                   </Button>
                   <Button variant="ghost" onClick={handleClose}>
                     <X className="h-4 w-4 mr-2" />
                     Close
                   </Button>
                 </div>
+              </div>
+            )}
+
+            {/* Close button when no result */}
+            {!plantInfo && (
+              <div className="p-4 pt-2">
+                <Button variant="ghost" onClick={handleClose} className="w-full">
+                  <X className="h-4 w-4 mr-2" />
+                  Close Scanner
+                </Button>
               </div>
             )}
           </div>

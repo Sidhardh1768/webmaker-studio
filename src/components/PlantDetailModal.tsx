@@ -21,6 +21,11 @@ const PlantDetailModal = ({ plant, isOpen, onClose }: PlantDetailModalProps) => 
             src={plant.image}
             alt={plant.commonName}
             className="w-full h-full object-cover"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.onerror = null;
+              target.src = "/placeholder.svg";
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
           

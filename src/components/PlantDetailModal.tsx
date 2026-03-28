@@ -21,6 +21,8 @@ const PlantDetailModal = ({ plant, isOpen, onClose }: PlantDetailModalProps) => 
             src={plant.image}
             alt={plant.commonName}
             className="w-full h-full object-cover"
+            loading="lazy"
+            referrerPolicy="no-referrer"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.onerror = null;

@@ -16,6 +16,8 @@ const PlantCard = ({ plant, onSelect }: PlantCardProps) => {
           src={plant.image}
           alt={plant.commonName}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          loading="lazy"
+          referrerPolicy="no-referrer"
           onError={(e) => {
             const target = e.target as HTMLImageElement;
             target.onerror = null;

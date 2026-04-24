@@ -44,12 +44,17 @@ const PlantScanner = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const firstScanTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { toast } = useToast();
 
   const stopCamera = useCallback(() => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
+    }
+    if (firstScanTimeoutRef.current) {
+      clearTimeout(firstScanTimeoutRef.current);
+      firstScanTimeoutRef.current = null;
     }
     if (streamRef.current) {
       streamRef.current.getTracks().forEach(track => track.stop());
@@ -91,6 +96,10 @@ const PlantScanner = () => {
           clearInterval(intervalRef.current);
           intervalRef.current = null;
         }
+        if (firstScanTimeoutRef.current) {
+          clearTimeout(firstScanTimeoutRef.current);
+          firstScanTimeoutRef.current = null;
+        }
         toast({
           title: "Plant Identified!",
           description: `Found: ${data.commonName}`,
@@ -98,7 +107,16 @@ const PlantScanner = () => {
       }
     } catch (error) {
       console.error("Error identifying plant:", error);
-      // Don't stop scanning on error, just log it
+      const message = error instanceof Error ? error.message : "Unable to analyze this frame right now.";
+      toast({
+        title: "Scan interrupted",
+        description: message.includes("Rate limit")
+          ? "Too many scans at once. Hold steady and try again in a moment."
+          : message.includes("Payment required")
+            ? "AI usage credits need attention before more scans can run."
+            : "We couldn't analyze that frame. The scanner will keep trying.",
+        variant: "destructive",
+      });
     } finally {
       setIsIdentifying(false);
     }
@@ -107,6 +125,14 @@ const PlantScanner = () => {
   const startCamera = useCallback(async () => {
     setCameraError(null);
     setPlantInfo(null);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    if (firstScanTimeoutRef.current) {
+      clearTimeout(firstScanTimeoutRef.current);
+      firstScanTimeoutRef.current = null;
+    }
 
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
@@ -128,7 +154,7 @@ const PlantScanner = () => {
       }, SCAN_INTERVAL_MS);
 
       // Also do an immediate first scan after 1.5s to give camera time to focus
-      setTimeout(() => {
+      firstScanTimeoutRef.current = setTimeout(() => {
         const frame = captureFrame();
         if (frame) identifyPlant(frame);
       }, 1500);
@@ -153,12 +179,15 @@ const PlantScanner = () => {
 
   const handleRescan = useCallback(() => {
     setPlantInfo(null);
-    // Restart the interval
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
     intervalRef.current = setInterval(() => {
       const frame = captureFrame();
       if (frame) identifyPlant(frame);
     }, SCAN_INTERVAL_MS);
-    // Immediate scan
+
     const frame = captureFrame();
     if (frame) identifyPlant(frame);
   }, [captureFrame, identifyPlant]);

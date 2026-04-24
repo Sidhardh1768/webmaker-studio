@@ -1,4 +1,6 @@
-import { Sparkles } from "lucide-react";
+import { Sparkles, ExternalLink, Search } from "lucide-react";
+import { plants } from "@/data/plants";
+import { Button } from "@/components/ui/button";
 import type { PlantInfo } from "@/components/PlantScanner";
 
 interface PlantResultProps {
@@ -8,8 +10,33 @@ interface PlantResultProps {
 const PlantResult = ({ plantInfo }: PlantResultProps) => {
   if (!plantInfo.identified) return null;
 
+  const matchedPlant = plants.find(
+    (plant) =>
+      plant.scientificName.toLowerCase() === plantInfo.scientificName?.toLowerCase() ||
+      plant.commonName.toLowerCase() === plantInfo.commonName?.toLowerCase(),
+  );
+
+  const searchTerm = encodeURIComponent(
+    plantInfo.scientificName || plantInfo.commonName || "plant",
+  );
+
   return (
     <div className="bg-muted/50 rounded-lg p-4 space-y-4 animate-in slide-in-from-bottom-4 duration-300">
+      {matchedPlant && (
+        <img
+          src={matchedPlant.image}
+          alt={matchedPlant.commonName}
+          className="h-48 w-full rounded-lg object-cover border border-border"
+          loading="lazy"
+          referrerPolicy="no-referrer"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.onerror = null;
+            target.src = "/placeholder.svg";
+          }}
+        />
+      )}
+
       <div className="flex items-start gap-3">
         <Sparkles className="h-5 w-5 text-primary mt-1" />
         <div>
@@ -84,6 +111,29 @@ const PlantResult = ({ plantInfo }: PlantResultProps) => {
           <p className="text-sm text-muted-foreground">{plantInfo.usageTips}</p>
         </div>
       )}
+
+      <div className="grid gap-2 sm:grid-cols-2">
+        <Button asChild variant="outline">
+          <a
+            href={`https://lens.google.com/`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <ExternalLink className="h-4 w-4" />
+            Compare with Google Lens
+          </a>
+        </Button>
+        <Button asChild variant="nature">
+          <a
+            href={`https://www.google.com/search?q=${searchTerm}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Search className="h-4 w-4" />
+            Verify on the web
+          </a>
+        </Button>
+      </div>
     </div>
   );
 };

@@ -1,4 +1,5 @@
-import { Sparkles, ExternalLink, Search } from "lucide-react";
+import { Sparkles, ExternalLink, Search, Volume2, Square } from "lucide-react";
+import { useEffect, useState } from "react";
 import { plants } from "@/data/plants";
 import { Button } from "@/components/ui/button";
 import type { PlantInfo } from "@/components/PlantScanner";
@@ -8,7 +9,54 @@ interface PlantResultProps {
 }
 
 const PlantResult = ({ plantInfo }: PlantResultProps) => {
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const [voiceSupported, setVoiceSupported] = useState(false);
+
+  useEffect(() => {
+    setVoiceSupported(typeof window !== "undefined" && "speechSynthesis" in window);
+    return () => {
+      if (typeof window !== "undefined" && "speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
+
   if (!plantInfo.identified) return null;
+
+  const buildSpeechText = () => {
+    const parts: string[] = [];
+    if (plantInfo.commonName) parts.push(`This plant is ${plantInfo.commonName}.`);
+    if (plantInfo.scientificName) parts.push(`Scientific name: ${plantInfo.scientificName}.`);
+    if (plantInfo.family) parts.push(`Family: ${plantInfo.family}.`);
+    if (plantInfo.description) parts.push(plantInfo.description);
+    if (plantInfo.medicinalProperties?.length) {
+      parts.push(`Medicinal properties include: ${plantInfo.medicinalProperties.join(", ")}.`);
+    }
+    if (plantInfo.ayurvedicBenefits?.length) {
+      parts.push(`Ayurvedic benefits: ${plantInfo.ayurvedicBenefits.join(". ")}.`);
+    }
+    if (plantInfo.usageTips) parts.push(`Usage tip: ${plantInfo.usageTips}`);
+    return parts.join(" ");
+  };
+
+  const handleSpeak = () => {
+    if (!voiceSupported) return;
+    const synth = window.speechSynthesis;
+    if (isSpeaking) {
+      synth.cancel();
+      setIsSpeaking(false);
+      return;
+    }
+    const utterance = new SpeechSynthesisUtterance(buildSpeechText());
+    utterance.rate = 0.95;
+    utterance.pitch = 1;
+    utterance.lang = "en-US";
+    utterance.onend = () => setIsSpeaking(false);
+    utterance.onerror = () => setIsSpeaking(false);
+    synth.cancel();
+    synth.speak(utterance);
+    setIsSpeaking(true);
+  };
 
   const matchedPlant = plants.find(
     (plant) =>

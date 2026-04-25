@@ -6,6 +6,7 @@ import BenefitsSection from "@/components/BenefitsSection";
 import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 import PlantScanner from "@/components/PlantScanner";
+import HerbalChatbot from "@/components/HerbalChatbot";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -30,6 +31,7 @@ const Index = () => {
       </main>
       <Footer />
       <PlantScanner />
+      <HerbalChatbot />
     </div>
   );
 };

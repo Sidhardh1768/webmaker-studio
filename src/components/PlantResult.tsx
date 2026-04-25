@@ -87,7 +87,7 @@ const PlantResult = ({ plantInfo }: PlantResultProps) => {
 
       <div className="flex items-start gap-3">
         <Sparkles className="h-5 w-5 text-primary mt-1" />
-        <div>
+        <div className="flex-1">
           <h3 className="font-semibold text-lg">{plantInfo.commonName}</h3>
           <p className="text-sm text-muted-foreground italic">{plantInfo.scientificName}</p>
           {plantInfo.family && (
@@ -105,6 +105,18 @@ const PlantResult = ({ plantInfo }: PlantResultProps) => {
             </span>
           )}
         </div>
+        {voiceSupported && (
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={handleSpeak}
+            aria-label={isSpeaking ? "Stop voice playback" : "Listen to result"}
+          >
+            {isSpeaking ? <Square className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+            {isSpeaking ? "Stop" : "Listen"}
+          </Button>
+        )}
       </div>
 
       {plantInfo.description && <p className="text-sm">{plantInfo.description}</p>}

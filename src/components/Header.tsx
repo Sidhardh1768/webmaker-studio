@@ -15,15 +15,15 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-border/60 transition-all duration-500">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center group-hover:shadow-glow transition-all duration-300">
-              <Leaf className="w-5 h-5 text-primary-foreground" />
+            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center group-hover:shadow-glow group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+              <Leaf className="w-5 h-5 text-primary-foreground transition-transform duration-500 group-hover:-rotate-12" />
             </div>
-            <span className="font-display text-xl md:text-2xl font-semibold text-foreground">
+            <span className="font-display text-xl md:text-2xl font-semibold text-foreground transition-colors duration-300 group-hover:text-primary">
               Virtual Herbal Garden
             </span>
           </a>
@@ -34,7 +34,7 @@ const Header = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-muted-foreground hover:text-primary font-medium transition-colors duration-200"
+                className="relative text-muted-foreground hover:text-primary font-medium transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:bg-primary after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300"
               >
                 {link.label}
               </a>

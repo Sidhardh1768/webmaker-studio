@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Plant } from "@/data/plants";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
-import { X, MapPin, Droplets, Sun, ThermometerSun, CloudRain, Leaf, Heart, Sparkles } from "lucide-react";
+import { X, MapPin, Droplets, Sun, ThermometerSun, CloudRain, Leaf, Heart, Sparkles, Check } from "lucide-react";
 import { Button } from "./ui/button";
+import { toast } from "sonner";
 
 interface PlantDetailModalProps {
   plant: Plant | null;
@@ -10,7 +12,34 @@ interface PlantDetailModalProps {
 }
 
 const PlantDetailModal = ({ plant, isOpen, onClose }: PlantDetailModalProps) => {
+  const [added, setAdded] = useState(false);
+  const [bursts, setBursts] = useState<{ id: number; x: number }[]>([]);
+
   if (!plant) return null;
+
+  const handleAddToGarden = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (added) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const newBursts = Array.from({ length: 5 }, (_, i) => ({
+      id: Date.now() + i,
+      x: (i - 2) * 18 + (Math.random() * 10 - 5),
+    }));
+    setBursts(newBursts);
+    setAdded(true);
+
+    // Persist to localStorage garden
+    try {
+      const key = "my-garden";
+      const existing: string[] = JSON.parse(localStorage.getItem(key) || "[]");
+      if (!existing.includes(plant.id)) {
+        existing.push(plant.id);
+        localStorage.setItem(key, JSON.stringify(existing));
+      }
+    } catch {}
+
+    toast.success(`${plant.commonName} added to your garden! 🌱`);
+    setTimeout(() => setBursts([]), 1300);
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -144,9 +173,30 @@ const PlantDetailModal = ({ plant, isOpen, onClose }: PlantDetailModalProps) => 
 
           {/* Action buttons */}
           <div className="flex gap-3 pt-4 border-t border-border">
-            <Button variant="default" size="lg" className="flex-1">
-              Add to My Garden
-            </Button>
+            <div className="relative flex-1">
+              <Button
+                variant="default"
+                size="lg"
+                className={`w-full transition-transform ${added ? "animate-grow-pop" : "hover:scale-[1.02] active:scale-95"}`}
+                onClick={handleAddToGarden}
+                disabled={added}
+              >
+                {added ? (
+                  <span className="inline-flex items-center gap-2">
+                    <Check className="w-5 h-5" /> Added to Garden
+                  </span>
+                ) : (
+                  "Add to My Garden"
+                )}
+              </Button>
+              {bursts.map((b) => (
+                <Leaf
+                  key={b.id}
+                  className="absolute left-1/2 top-1/2 w-5 h-5 text-primary pointer-events-none animate-grow-rise"
+                  style={{ transform: `translate(${b.x}px, 0)` }}
+                />
+              ))}
+            </div>
             <Button variant="outline" size="lg" onClick={onClose}>
               Close
             </Button>

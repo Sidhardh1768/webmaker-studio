@@ -7,6 +7,8 @@ import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 import PlantScanner from "@/components/PlantScanner";
 import HerbalChatbot from "@/components/HerbalChatbot";
+import ScrollProgress from "@/components/ScrollProgress";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -22,6 +24,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <ScrollProgress />
       <Header />
       <main>
         <HeroSection onSearch={handleSearch} />
@@ -32,6 +35,7 @@ const Index = () => {
       <Footer />
       <PlantScanner />
       <HerbalChatbot />
+      <ScrollToTop />
     </div>
   );
 };

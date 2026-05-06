@@ -1,6 +1,7 @@
 import { Leaf, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
+import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,6 +38,7 @@ const Header = () => {
                 {link.label}
               </a>
             ))}
+            <ThemeToggle />
             <Button variant="default" size="sm">
               Explore Garden
             </Button>

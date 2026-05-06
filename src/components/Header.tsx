@@ -1,5 +1,6 @@
 import { Leaf, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import ThemeToggle from "./ThemeToggle";
 
@@ -39,8 +40,8 @@ const Header = () => {
               </a>
             ))}
             <ThemeToggle />
-            <Button variant="default" size="sm">
-              Explore Garden
+            <Button variant="default" size="sm" asChild>
+              <Link to="/garden">Explore Garden</Link>
             </Button>
           </nav>
 
@@ -71,8 +72,10 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
-              <Button variant="default" className="w-full mt-2">
-                Explore Garden
+              <Button variant="default" className="w-full mt-2" asChild>
+                <Link to="/garden" onClick={() => setIsMenuOpen(false)}>
+                  Explore Garden
+                </Link>
               </Button>
             </div>
           </nav>

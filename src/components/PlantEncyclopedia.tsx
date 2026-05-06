@@ -36,7 +36,7 @@ const PlantEncyclopedia = ({ searchQuery }: PlantEncyclopediaProps) => {
     <section id="plants" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Section header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 reveal">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-herb-sage/30 text-herb-deep mb-4">
             <Leaf className="w-4 h-4" />
             <span className="text-sm font-medium">Plant Encyclopedia</span>
@@ -45,7 +45,7 @@ const PlantEncyclopedia = ({ searchQuery }: PlantEncyclopediaProps) => {
             Explore Medicinal Plants
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Discover the healing power of nature through our comprehensive collection 
+            Discover the healing power of nature through our comprehensive collection
             of medicinal and aromatic plants from across India.
           </p>
         </div>
@@ -70,8 +70,8 @@ const PlantEncyclopedia = ({ searchQuery }: PlantEncyclopediaProps) => {
             {filteredPlants.map((plant, index) => (
               <div
                 key={plant.id}
-                className="animate-fade-in-up"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="reveal"
+                style={{ transitionDelay: `${Math.min(index * 60, 400)}ms` }}
               >
                 <PlantCard plant={plant} onSelect={setSelectedPlant} />
               </div>

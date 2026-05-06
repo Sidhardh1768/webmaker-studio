@@ -9,7 +9,7 @@ interface PlantCardProps {
 
 const PlantCard = ({ plant, onSelect }: PlantCardProps) => {
   return (
-    <article className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/30 shadow-soft hover:shadow-elevated transition-all duration-500 h-full flex flex-col">
+    <article className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/40 shadow-soft hover:shadow-elevated tilt-hover h-full flex flex-col">
       {/* Image */}
       <div className="relative h-48 overflow-hidden">
         <img

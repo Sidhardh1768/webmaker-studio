@@ -50,7 +50,7 @@ const BenefitsSection = () => {
     <section id="benefits" className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 reveal">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/20 text-earth-warm mb-4">
             <Sparkles className="w-4 h-4" />
             <span className="text-sm font-medium">Ayurvedic Wisdom</span>
@@ -59,7 +59,7 @@ const BenefitsSection = () => {
             The Power of Herbal Medicine
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Ayurveda, the ancient Indian system of medicine, harnesses the therapeutic 
+            Ayurveda, the ancient Indian system of medicine, harnesses the therapeutic
             properties of plants to promote holistic well-being.
           </p>
         </div>
@@ -69,10 +69,10 @@ const BenefitsSection = () => {
           {benefits.map((benefit, index) => (
             <div
               key={benefit.title}
-              className="group p-6 bg-card rounded-2xl border border-border hover:border-primary/30 shadow-soft hover:shadow-elevated transition-all duration-500 animate-fade-in-up"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group p-6 bg-card rounded-2xl border border-border hover:border-primary/40 shadow-soft hover:shadow-elevated tilt-hover reveal"
+              style={{ transitionDelay: `${index * 80}ms` }}
             >
-              <div className={`w-14 h-14 rounded-xl ${benefit.bgColor} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+              <div className={`w-14 h-14 rounded-xl ${benefit.bgColor} flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500`}>
                 <benefit.icon className={`w-7 h-7 ${benefit.color}`} />
               </div>
               <h3 className="font-display text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
@@ -86,7 +86,7 @@ const BenefitsSection = () => {
         </div>
 
         {/* Ayurveda quote */}
-        <div className="mt-16 p-8 md:p-12 bg-hero-gradient rounded-3xl text-center">
+        <div className="mt-16 p-8 md:p-12 bg-hero-gradient rounded-3xl text-center reveal hover-lift shadow-elevated">
           <blockquote className="font-display text-xl md:text-2xl text-cream/90 italic mb-4 max-w-3xl mx-auto">
             "When diet is wrong, medicine is of no use. When diet is correct, medicine is of no need."
           </blockquote>

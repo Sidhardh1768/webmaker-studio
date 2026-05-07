@@ -39,10 +39,22 @@ const AboutSection = () => {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Button variant="default" size="lg">
+              <Button
+                variant="default"
+                size="lg"
+                onClick={() =>
+                  document.getElementById("plants")?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
                 Start Exploring
               </Button>
-              <Button variant="outline" size="lg">
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() =>
+                  document.getElementById("benefits")?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
                 Learn More
               </Button>
             </div>

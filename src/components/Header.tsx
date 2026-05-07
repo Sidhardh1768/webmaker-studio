@@ -1,17 +1,31 @@
-import { Leaf, Menu, X } from "lucide-react";
+import { Leaf, Menu, X, ChevronDown, Stethoscope, GitCompare, BookHeart, Sparkles, LayoutGrid } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import ThemeToggle from "./ThemeToggle";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#plants", label: "Plant Encyclopedia" },
-    { href: "#benefits", label: "Ayurvedic Benefits" },
-    { href: "#about", label: "About" },
+    { href: "/#home", label: "Home" },
+    { href: "/#plants", label: "Encyclopedia" },
+    { href: "/#benefits", label: "Benefits" },
+    { href: "/#about", label: "About" },
+  ];
+
+  const tools = [
+    { to: "/gallery", label: "Interactive Gallery", icon: LayoutGrid },
+    { to: "/remedy-finder", label: "Symptom → Remedy", icon: Stethoscope },
+    { to: "/compare", label: "Compare Plants", icon: GitCompare },
+    { to: "/journal", label: "Garden Journal", icon: BookHeart },
+    { to: "/garden", label: "My Garden", icon: Sparkles },
   ];
 
   return (
@@ -29,19 +43,33 @@ const Header = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="relative text-muted-foreground hover:text-primary font-medium transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:bg-primary after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300"
+                className="relative text-muted-foreground hover:text-primary text-sm font-medium transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:bg-primary after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300"
               >
                 {link.label}
               </a>
             ))}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="inline-flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none">
+                Tools <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                {tools.map((t) => (
+                  <DropdownMenuItem key={t.to} asChild>
+                    <Link to={t.to} className="cursor-pointer">
+                      <t.icon className="w-4 h-4 mr-2 text-primary" /> {t.label}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             <ThemeToggle />
             <Button variant="default" size="sm" asChild>
-              <Link to="/garden">Explore Garden</Link>
+              <Link to="/garden">My Garden</Link>
             </Button>
           </nav>
 
@@ -72,9 +100,22 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
+              <div className="border-t border-border pt-3 mt-1 space-y-1">
+                <p className="text-xs uppercase tracking-wider text-muted-foreground/60 px-1 mb-1">Tools</p>
+                {tools.map((t) => (
+                  <Link
+                    key={t.to}
+                    to={t.to}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center gap-2 py-2 text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <t.icon className="w-4 h-4 text-primary" /> {t.label}
+                  </Link>
+                ))}
+              </div>
               <Button variant="default" className="w-full mt-2" asChild>
                 <Link to="/garden" onClick={() => setIsMenuOpen(false)}>
-                  Explore Garden
+                  My Garden
                 </Link>
               </Button>
             </div>

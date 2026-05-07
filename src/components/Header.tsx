@@ -100,9 +100,22 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
+              <div className="border-t border-border pt-3 mt-1 space-y-1">
+                <p className="text-xs uppercase tracking-wider text-muted-foreground/60 px-1 mb-1">Tools</p>
+                {tools.map((t) => (
+                  <Link
+                    key={t.to}
+                    to={t.to}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center gap-2 py-2 text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <t.icon className="w-4 h-4 text-primary" /> {t.label}
+                  </Link>
+                ))}
+              </div>
               <Button variant="default" className="w-full mt-2" asChild>
                 <Link to="/garden" onClick={() => setIsMenuOpen(false)}>
-                  Explore Garden
+                  My Garden
                 </Link>
               </Button>
             </div>

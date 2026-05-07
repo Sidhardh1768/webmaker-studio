@@ -1,17 +1,31 @@
-import { Leaf, Menu, X } from "lucide-react";
+import { Leaf, Menu, X, ChevronDown, Stethoscope, GitCompare, BookHeart, Sparkles, LayoutGrid } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import ThemeToggle from "./ThemeToggle";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#plants", label: "Plant Encyclopedia" },
-    { href: "#benefits", label: "Ayurvedic Benefits" },
-    { href: "#about", label: "About" },
+    { href: "/#home", label: "Home" },
+    { href: "/#plants", label: "Encyclopedia" },
+    { href: "/#benefits", label: "Benefits" },
+    { href: "/#about", label: "About" },
+  ];
+
+  const tools = [
+    { to: "/gallery", label: "Interactive Gallery", icon: LayoutGrid },
+    { to: "/remedy-finder", label: "Symptom → Remedy", icon: Stethoscope },
+    { to: "/compare", label: "Compare Plants", icon: GitCompare },
+    { to: "/journal", label: "Garden Journal", icon: BookHeart },
+    { to: "/garden", label: "My Garden", icon: Sparkles },
   ];
 
   return (
